@@ -6,15 +6,19 @@ import java.util.List;
 
 public interface NewsDao {
 
-//    Create
+    //create
     void add(News news);
 
-//    Read
+    //read
     List<News> getAll();
     List<News> getAllNewsByDepartment(int departmentId);
     List<News> getAllNewsByDepartmentSortedNewestToOldest(int departmentId);
 
-//    Delete
+
+    //update
+    //omit for now
+
+    //delete
     void deleteById(int id);
     void clearAll();
 }

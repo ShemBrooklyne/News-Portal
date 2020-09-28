@@ -1,21 +1,26 @@
 package dao;
 
 import model.Department;
-import model.User;
+import model.user;
 
 import java.util.List;
 
 public interface UserDao {
 
-//    Create
-    void add(User user);
-    void addUserToDepartment(User user, Department department);
+    //create
+    void add(user user);
+    void addUserToDepartment(user user, Department department);
 
-//    Read
-    List<User> getAll();
-    User findUserById(int id);
-    List<Department> getAllDepartmentsForAUser(int id);
 
+    //read
+    List<user> getAll();
+    user findUserById(int id);
+    List<Department> getAlldepartmentsForAuser(int id);
+
+    //update
+    //omit for now
+
+    //delete
     void deleteById(int id);
 
     void clearAll();

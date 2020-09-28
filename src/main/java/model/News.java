@@ -4,77 +4,83 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
-public class News {
+public class News implements Comparable<News> {
     private String headline;
     private String content;
     private String author;
     private int id;
-    private int newsId;
+    private int departmentId; //will be used to connect Department to News (one-to-many)
     private long createdat;
     private String formattedCreatedAt;
 
-    public News(String headline, String content, String author, int newsId) {
+    public News(String headline, String content, String author, int departmentId) {
         this.headline = headline;
         this.content = content;
         this.author = author;
-        this.newsId = newsId;
+        this.departmentId = departmentId;
         this.createdat = System.currentTimeMillis();
-        setFormattedCreatedAt();
+        setFormattedCreatedAt(); //we'll make me in a minute
     }
 
-//    setters
+    //Create comparison
 
-    public void setHeadline(String headline) {
-        this.headline = headline;
+    @Override
+    public int compareTo(News newsObject) {
+        if (this.createdat < newsObject.createdat)
+        {
+            return -1; //this object was made earlier than the second object.
+        }
+        else if (this.createdat > newsObject.createdat){ //this object was made later than the second object
+            return 1;
+        }
+        else {
+            return 0; //they were made at the same time, which is very unlikely, but mathematically not impossible.
+        }
     }
 
-    public void setContent(String content) {
-        this.content = content;
+
+    //Hashcode n equals override
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof News)) return false;
+        News news = (News) o;
+        return id == news.id &&
+                departmentId == news.departmentId &&
+                Objects.equals(headline, news.headline) &&
+                Objects.equals(content, news.content) &&
+                Objects.equals(author, news.author);
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    @Override
+    public int hashCode() {
+        return Objects.hash(headline, content, author, id, departmentId);
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    //Getters
 
-    public void setNewsId(int newsId) {
-        this.newsId = newsId;
-    }
-
-    public void setCreatedat() {
-        this.createdat = System.currentTimeMillis(); // It'll become clear soon why we need this explicit setter
-    }
-
-    public void setFormattedCreatedAt(){
-        Date date = new Date(this.createdat);
-        String datePatternToUse = "MM/dd/yyyy @ K:mm a";
-        SimpleDateFormat sdf = new SimpleDateFormat(datePatternToUse);
-        this.formattedCreatedAt = sdf.format(date);
-    }
-
-//    getters
 
     public String getHeadline() {
         return headline;
-    }
-
-    public String getContent() {
-        return content;
     }
 
     public String getAuthor() {
         return author;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+
     public int getId() {
         return id;
     }
 
-    public int getNewsId() {
-        return newsId;
+    public int getdepartmentId() {
+        return departmentId;
     }
 
     public long getCreatedat() {
@@ -88,20 +94,41 @@ public class News {
         return sdf.format(date);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof News)) return false;
-        News news = (News) o;
-        return id == news.id &&
-                newsId == news.newsId &&
-                Objects.equals(headline, news.headline) &&
-                Objects.equals(content, news.content) &&
-                Objects.equals(author, news.author);
+
+    //Setters
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(headline, content, author, id, newsId);
+    public void setHeadline(String headline) {
+        this.headline = headline;
     }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setdepartmentId(int departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public void setCreatedat() {
+        this.createdat = System.currentTimeMillis(); // It'll become clear soon why we need this explicit setter
+    }
+
+    public void setFormattedCreatedAt(){
+        Date date = new Date(this.createdat);
+        String datePatternToUse = "MM/dd/yyyy @ K:mm a";
+        SimpleDateFormat sdf = new SimpleDateFormat(datePatternToUse);
+        this.formattedCreatedAt = sdf.format(date);
+    }
+
+
+
+
 }
