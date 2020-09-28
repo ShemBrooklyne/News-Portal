@@ -20,12 +20,12 @@ CREATE TABLE IF NOT EXISTS news (
  headline VARCHAR,
  content VARCHAR,
  author VARCHAR,
- departmentId INTEGER,
+ departmentid INTEGER,
  createdat LONG
 );
 
 CREATE TABLE IF NOT EXISTS departments_users (
  id int PRIMARY KEY auto_increment,
- UserId INTEGER,
- departmentId INTEGER
+ Userid INTEGER,
+ departmentid INTEGER
 );

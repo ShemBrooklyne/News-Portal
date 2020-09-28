@@ -15,7 +15,7 @@ public class Sql2oNewsDao implements NewsDao {
 
     @Override
     public void add(News news) {
-        String sql = "INSERT INTO news (headline, content, author, departmentId, createdat) VALUES (:headline, :content, :author, :departmentId, :createdat)"; //if you change your model, be sure to update here as well!
+        String sql = "INSERT INTO news (headline, content, author, departmentid, createdat) VALUES (:headline, :content, :author, :departmentid, :createdat)"; //if you change your model, be sure to update here as well!
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql, true)
                     .bind(news)
@@ -38,7 +38,7 @@ public class Sql2oNewsDao implements NewsDao {
     @Override
     public List<News> getAllNewsByDepartment(int departmentId) {
         try (Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM news WHERE departmentId = :departmentId")
+            return con.createQuery("SELECT * FROM news WHERE departmentid = :departmentid")
                     .addParameter("departmentId", departmentId)
                     .executeAndFetch(News.class);
         }

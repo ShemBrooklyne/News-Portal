@@ -49,11 +49,11 @@ public class Sql2oDepartmentDao implements DepartmentDao {
 
     @Override
     public void addDepartmentToUser(Department department, user user){
-        String sql = "INSERT INTO departments_users (departmentId, UserId) VALUES (:departmentId, :UserId)";
+        String sql = "INSERT INTO departments_users (departmentid, Userid) VALUES (:departmentid, :Userid)";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
-                    .addParameter("departmentId", department.getId())
-                    .addParameter("UserId", user.getId())
+                    .addParameter("departmentid", department.getId())
+                    .addParameter("Userid", user.getId())
                     .executeUpdate();
         } catch (Sql2oException ex){
             System.out.println(ex);
@@ -65,17 +65,17 @@ public class Sql2oDepartmentDao implements DepartmentDao {
     public List<user> getAllUsersByDepartment(int departmentId){
         ArrayList<user> users = new ArrayList<>();
 
-        String joinQuery = "SELECT UserId FROM departments_users WHERE departmentId = :departmentId";
+        String joinQuery = "SELECT userid FROM departments_users WHERE departmentid = :departmentid";
 
         try (Connection con = sql2o.open()) {
             List<Integer> allusersIds = con.createQuery(joinQuery)
-                    .addParameter("departmentId", departmentId)
+                    .addParameter("departmentid", departmentId)
                     .executeAndFetch(Integer.class);
             for (Integer userId : allusersIds){
-                String userQuery = "SELECT * FROM users WHERE id = :UserId";
+                String userQuery = "SELECT * FROM users WHERE id = :userid";
                 users.add(
                         con.createQuery(userQuery)
-                                .addParameter("UserId", userId)
+                                .addParameter("userid", userId)
                                 .executeAndFetchFirst(user.class));
             }
         } catch (Sql2oException ex){
@@ -102,13 +102,13 @@ public class Sql2oDepartmentDao implements DepartmentDao {
     @Override
     public void deleteById(int id) {
         String sql = "DELETE from departments WHERE id=:id";
-        String deleteJoin = "DELETE from departments_users WHERE departmentId = :departmentId";
+        String deleteJoin = "DELETE from departments_users WHERE departmentid = :departmentid";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
                     .addParameter("id", id)
                     .executeUpdate();
             con.createQuery(deleteJoin)
-                    .addParameter("departmentId", id)
+                    .addParameter("departmentid", id)
                     .executeUpdate();
         } catch (Sql2oException ex) {
             System.out.println(ex);
