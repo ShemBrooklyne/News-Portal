@@ -21,7 +21,7 @@ CREATE TABLE news (
  content VARCHAR,
  author VARCHAR,
  departmentid INTEGER,
- createdat LONG
+ createdat BIGINT
 );
 
 CREATE TABLE departments_users (
@@ -30,4 +30,4 @@ CREATE TABLE departments_users (
  departmentid INTEGER
 );
 
-CREATE DATABSE newsportal_test WITH TEMPLATE newsportal;
+CREATE DATABASE newsportal_test WITH TEMPLATE newsportal;
