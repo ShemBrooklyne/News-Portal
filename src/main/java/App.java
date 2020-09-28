@@ -17,7 +17,21 @@ import static spark.Spark.*;
 
 public class App {
 
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
+
+
+
     public static void main(String[] args) {
+
+        port(getHerokuAssignedPort());
+        staticFileLocation("/public");
+
         Sql2oUserDao userDao;
         Sql2oDepartmentDao DepartmentDao;
         Sql2oNewsDao NewsDao;
@@ -27,13 +41,21 @@ public class App {
 //        String connectionString = "jdbc:h2:~/newsportal.db;INIT=RUNSCRIPT from 'classpath:DB/create.sql'";
 //        Sql2o sql2o = new Sql2o(connectionString, "", "");
 
-        String connectionString = "jdbc:postgresql://localhost:5432/newsportal"; //connect to newsportal, not newsportal_test!
-        Sql2o sql2o = new Sql2o(connectionString, "access", "Access");  //Ubuntu Sql2o sql2o = new Sql2o(connectionString, "user", "1234");
+
+        String connectionString = "jdbc:postgresql://ec2-204-236-228-169.compute-1.amazonaws.com:5432/d2gbuioks1j7sv"; //!
+        Sql2o sql2o = new Sql2o(connectionString, "hjfgyjguaxciit", "ab84930a6217bbb75e971a6c1639efc2bff76d985dac6a24aefd16920d82155c"); //!
+
+
+//        String connectionString = "jdbc:postgresql://localhost:5432/newsportal"; //connect to newsportal, not newsportal_test!
+//        Sql2o sql2o = new Sql2o(connectionString, "access", "Access");  //Ubuntu Sql2o sql2o = new Sql2o(connectionString, "user", "1234");
 
         DepartmentDao = new Sql2oDepartmentDao(sql2o);
         userDao = new Sql2oUserDao(sql2o);
         NewsDao = new Sql2oNewsDao(sql2o);
         conn = sql2o.open();
+
+        get("/", "application/json", (req, res) ->
+                "{\"message\":\"Hello there Netizen! WELCOME to NEWS-PORTAL-API mainpage.\"}");
 
 
         get("/departments", "application/json", (req, res) -> { //accept a request in format JSON from an app

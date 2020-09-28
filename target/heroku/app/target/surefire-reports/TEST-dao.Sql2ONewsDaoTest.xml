@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="6" failures="1" name="dao.Sql2ONewsDaoTest" time="0.899" errors="5" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="java.vm.version" value="11.0.8+10"/>
+    <property name="sun.boot.library.path" value="/home/access/.sdkman/candidates/java/11.0.8.hs-adpt/lib"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/access/IdeaProjects/News-Portal"/>
+    <property name="java.vm.vendor" value="AdoptOpenJDK"/>
+    <property name="java.vendor.url" value="https://adoptopenjdk.net/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=":"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/home/access/IdeaProjects/News-Portal"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="java.runtime.version" value="11.0.8+10"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/usr/share/maven/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="maven.conf" value="/usr/share/maven/conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="55.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="5.4.0-48-generic"/>
+    <property name="library.jansi.path" value="/usr/share/maven/lib/jansi-native"/>
+    <property name="user.home" value="/home/access"/>
+    <property name="user.timezone" value="Africa/Nairobi"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="user.name" value="access"/>
+    <property name="java.class.path" value="/usr/share/maven/boot/plexus-classworlds-2.x.jar"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher heroku:deploy"/>
+    <property name="java.home" value="/home/access/.sdkman/candidates/java/11.0.8.hs-adpt"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="11.0.8"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="java.vendor" value="AdoptOpenJDK"/>
+    <property name="maven.home" value="/usr/share/maven"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.version.date" value="2020-07-14"/>
+    <property name="java.vendor.url.bug" value="https://github.com/AdoptOpenJDK/openjdk-support/issues"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="java.vendor.version" value="AdoptOpenJDK"/>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase classname="dao.Sql2ONewsDaoTest" name="getAllNewsByDepartment" time="0.797">
+    <error message="Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+SELECT * FROM news WHERE departmentid = ? [42102-191]" type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+SELECT * FROM news WHERE departmentid = ? [42102-191]
+	at org.sql2o.Query.&lt;init&gt;(Query.java:67)
+	at org.sql2o.Connection.createQuery(Connection.java:83)
+	at org.sql2o.Connection.createQuery(Connection.java:70)
+	at org.sql2o.Connection.createQuery(Connection.java:102)
+	at dao.Sql2oNewsDao.getAllNewsByDepartment(Sql2oNewsDao.java:41)
+	at dao.Sql2ONewsDaoTest.getAllNewsByDepartment(Sql2ONewsDaoTest.java:71)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: org.h2.jdbc.JdbcSQLException: Table &quot;NEWS&quot; not found; SQL statement:
+SELECT * FROM news WHERE departmentid = ? [42102-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5349)
+	at org.h2.command.Parser.readTableFilter(Parser.java:1245)
+	at org.h2.command.Parser.parseSelectSimpleFromPart(Parser.java:1884)
+	at org.h2.command.Parser.parseSelectSimple(Parser.java:2032)
+	at org.h2.command.Parser.parseSelectSub(Parser.java:1878)
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:1699)
+	at org.h2.command.Parser.parseSelect(Parser.java:1687)
+	at org.h2.command.Parser.parsePrepared(Parser.java:443)
+	at org.h2.command.Parser.parse(Parser.java:315)
+	at org.h2.command.Parser.parse(Parser.java:287)
+	at org.h2.command.Parser.prepareCommand(Parser.java:252)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcPreparedStatement.&lt;init&gt;(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:276)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1122)
+	at org.sql2o.Query.&lt;init&gt;(Query.java:62)
+	... 36 more
+</error>
+    <system-out>org.sql2o.Sql2oException: Error preparing statement - Table &quot;DEPARTMENTS&quot; not found; SQL statement:
+INSERT INTO departments (name, about, website, email) VALUES (?, ?, ?, ?) [42102-191]
+org.sql2o.Sql2oException: Error preparing statement - Table &quot;DEPARTMENTS&quot; not found; SQL statement:
+INSERT INTO departments (name, about, website, email) VALUES (?, ?, ?, ?) [42102-191]
+org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+INSERT INTO news (headline, content, author, departmentid, createdat, formattedCreatedAt) VALUES (?, ?, ?, ?, ?, ?) [42102-191]
+org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+INSERT INTO news (headline, content, author, departmentid, createdat, formattedCreatedAt) VALUES (?, ?, ?, ?, ?, ?) [42102-191]
+org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+INSERT INTO news (headline, content, author, departmentid, createdat, formattedCreatedAt) VALUES (?, ?, ?, ?, ?, ?) [42102-191]
+org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+DELETE from news [42102-191]
+</system-out>
+  </testcase>
+  <testcase classname="dao.Sql2ONewsDaoTest" name="getAll" time="0.017">
+    <error message="Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+SELECT * FROM news [42102-191]" type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+SELECT * FROM news [42102-191]
+	at org.sql2o.Query.&lt;init&gt;(Query.java:67)
+	at org.sql2o.Connection.createQuery(Connection.java:83)
+	at org.sql2o.Connection.createQuery(Connection.java:70)
+	at org.sql2o.Connection.createQuery(Connection.java:102)
+	at dao.Sql2oNewsDao.getAll(Sql2oNewsDao.java:33)
+	at dao.Sql2ONewsDaoTest.getAll(Sql2ONewsDaoTest.java:61)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: org.h2.jdbc.JdbcSQLException: Table &quot;NEWS&quot; not found; SQL statement:
+SELECT * FROM news [42102-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5349)
+	at org.h2.command.Parser.readTableFilter(Parser.java:1245)
+	at org.h2.command.Parser.parseSelectSimpleFromPart(Parser.java:1884)
+	at org.h2.command.Parser.parseSelectSimple(Parser.java:2032)
+	at org.h2.command.Parser.parseSelectSub(Parser.java:1878)
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:1699)
+	at org.h2.command.Parser.parseSelect(Parser.java:1687)
+	at org.h2.command.Parser.parsePrepared(Parser.java:443)
+	at org.h2.command.Parser.parse(Parser.java:315)
+	at org.h2.command.Parser.parse(Parser.java:287)
+	at org.h2.command.Parser.prepareCommand(Parser.java:252)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcPreparedStatement.&lt;init&gt;(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:276)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1122)
+	at org.sql2o.Query.&lt;init&gt;(Query.java:62)
+	... 36 more
+</error>
+    <system-out>org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+INSERT INTO news (headline, content, author, departmentid, createdat, formattedCreatedAt) VALUES (?, ?, ?, ?, ?, ?) [42102-191]
+org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+INSERT INTO news (headline, content, author, departmentid, createdat, formattedCreatedAt) VALUES (?, ?, ?, ?, ?, ?) [42102-191]
+org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+DELETE from news [42102-191]
+</system-out>
+  </testcase>
+  <testcase classname="dao.Sql2ONewsDaoTest" name="addingnewsetsId" time="0.001">
+    <failure message="expected:&lt;1&gt; but was:&lt;0&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;1&gt; but was:&lt;0&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:645)
+	at org.junit.Assert.assertEquals(Assert.java:631)
+	at dao.Sql2ONewsDaoTest.addingnewsetsId(Sql2ONewsDaoTest.java:54)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</failure>
+    <system-out>org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+INSERT INTO news (headline, content, author, departmentid, createdat, formattedCreatedAt) VALUES (?, ?, ?, ?, ?, ?) [42102-191]
+org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+DELETE from news [42102-191]
+</system-out>
+  </testcase>
+  <testcase classname="dao.Sql2ONewsDaoTest" name="timeStampIsReturnedCorrectly" time="0.023">
+    <error message="Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+SELECT * FROM news [42102-191]" type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+SELECT * FROM news [42102-191]
+	at org.sql2o.Query.&lt;init&gt;(Query.java:67)
+	at org.sql2o.Connection.createQuery(Connection.java:83)
+	at org.sql2o.Connection.createQuery(Connection.java:70)
+	at org.sql2o.Connection.createQuery(Connection.java:102)
+	at dao.Sql2oNewsDao.getAll(Sql2oNewsDao.java:33)
+	at dao.Sql2ONewsDaoTest.timeStampIsReturnedCorrectly(Sql2ONewsDaoTest.java:43)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: org.h2.jdbc.JdbcSQLException: Table &quot;NEWS&quot; not found; SQL statement:
+SELECT * FROM news [42102-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5349)
+	at org.h2.command.Parser.readTableFilter(Parser.java:1245)
+	at org.h2.command.Parser.parseSelectSimpleFromPart(Parser.java:1884)
+	at org.h2.command.Parser.parseSelectSimple(Parser.java:2032)
+	at org.h2.command.Parser.parseSelectSub(Parser.java:1878)
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:1699)
+	at org.h2.command.Parser.parseSelect(Parser.java:1687)
+	at org.h2.command.Parser.parsePrepared(Parser.java:443)
+	at org.h2.command.Parser.parse(Parser.java:315)
+	at org.h2.command.Parser.parse(Parser.java:287)
+	at org.h2.command.Parser.prepareCommand(Parser.java:252)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcPreparedStatement.&lt;init&gt;(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:276)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1122)
+	at org.sql2o.Query.&lt;init&gt;(Query.java:62)
+	... 36 more
+</error>
+    <system-out>org.sql2o.Sql2oException: Error preparing statement - Table &quot;DEPARTMENTS&quot; not found; SQL statement:
+INSERT INTO departments (name, about, website, email) VALUES (?, ?, ?, ?) [42102-191]
+org.sql2o.Sql2oException: Error preparing statement - Table &quot;DEPARTMENTS&quot; not found; SQL statement:
+INSERT INTO departments (name, about, website, email) VALUES (?, ?, ?, ?) [42102-191]
+org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+INSERT INTO news (headline, content, author, departmentid, createdat, formattedCreatedAt) VALUES (?, ?, ?, ?, ?, ?) [42102-191]
+org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+DELETE from news [42102-191]
+</system-out>
+  </testcase>
+  <testcase classname="dao.Sql2ONewsDaoTest" name="clearAll" time="0.027">
+    <error message="Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+SELECT * FROM news [42102-191]" type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+SELECT * FROM news [42102-191]
+	at org.sql2o.Query.&lt;init&gt;(Query.java:67)
+	at org.sql2o.Connection.createQuery(Connection.java:83)
+	at org.sql2o.Connection.createQuery(Connection.java:70)
+	at org.sql2o.Connection.createQuery(Connection.java:102)
+	at dao.Sql2oNewsDao.getAll(Sql2oNewsDao.java:33)
+	at dao.Sql2ONewsDaoTest.clearAll(Sql2ONewsDaoTest.java:88)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: org.h2.jdbc.JdbcSQLException: Table &quot;NEWS&quot; not found; SQL statement:
+SELECT * FROM news [42102-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5349)
+	at org.h2.command.Parser.readTableFilter(Parser.java:1245)
+	at org.h2.command.Parser.parseSelectSimpleFromPart(Parser.java:1884)
+	at org.h2.command.Parser.parseSelectSimple(Parser.java:2032)
+	at org.h2.command.Parser.parseSelectSub(Parser.java:1878)
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:1699)
+	at org.h2.command.Parser.parseSelect(Parser.java:1687)
+	at org.h2.command.Parser.parsePrepared(Parser.java:443)
+	at org.h2.command.Parser.parse(Parser.java:315)
+	at org.h2.command.Parser.parse(Parser.java:287)
+	at org.h2.command.Parser.prepareCommand(Parser.java:252)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcPreparedStatement.&lt;init&gt;(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:276)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1122)
+	at org.sql2o.Query.&lt;init&gt;(Query.java:62)
+	... 36 more
+</error>
+    <system-out>org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+INSERT INTO news (headline, content, author, departmentid, createdat, formattedCreatedAt) VALUES (?, ?, ?, ?, ?, ?) [42102-191]
+org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+INSERT INTO news (headline, content, author, departmentid, createdat, formattedCreatedAt) VALUES (?, ?, ?, ?, ?, ?) [42102-191]
+org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+DELETE from news [42102-191]
+org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+DELETE from news [42102-191]
+</system-out>
+  </testcase>
+  <testcase classname="dao.Sql2ONewsDaoTest" name="deleteById" time="0.034">
+    <error message="Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+SELECT * FROM news [42102-191]" type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+SELECT * FROM news [42102-191]
+	at org.sql2o.Query.&lt;init&gt;(Query.java:67)
+	at org.sql2o.Connection.createQuery(Connection.java:83)
+	at org.sql2o.Connection.createQuery(Connection.java:70)
+	at org.sql2o.Connection.createQuery(Connection.java:102)
+	at dao.Sql2oNewsDao.getAll(Sql2oNewsDao.java:33)
+	at dao.Sql2ONewsDaoTest.deleteById(Sql2ONewsDaoTest.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: org.h2.jdbc.JdbcSQLException: Table &quot;NEWS&quot; not found; SQL statement:
+SELECT * FROM news [42102-191]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.readTableOrView(Parser.java:5349)
+	at org.h2.command.Parser.readTableFilter(Parser.java:1245)
+	at org.h2.command.Parser.parseSelectSimpleFromPart(Parser.java:1884)
+	at org.h2.command.Parser.parseSelectSimple(Parser.java:2032)
+	at org.h2.command.Parser.parseSelectSub(Parser.java:1878)
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:1699)
+	at org.h2.command.Parser.parseSelect(Parser.java:1687)
+	at org.h2.command.Parser.parsePrepared(Parser.java:443)
+	at org.h2.command.Parser.parse(Parser.java:315)
+	at org.h2.command.Parser.parse(Parser.java:287)
+	at org.h2.command.Parser.prepareCommand(Parser.java:252)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcPreparedStatement.&lt;init&gt;(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:276)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1122)
+	at org.sql2o.Query.&lt;init&gt;(Query.java:62)
+	... 36 more
+</error>
+    <system-out>org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+INSERT INTO news (headline, content, author, departmentid, createdat, formattedCreatedAt) VALUES (?, ?, ?, ?, ?, ?) [42102-191]
+org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+INSERT INTO news (headline, content, author, departmentid, createdat, formattedCreatedAt) VALUES (?, ?, ?, ?, ?, ?) [42102-191]
+org.sql2o.Sql2oException: Error preparing statement - Table &quot;NEWS&quot; not found; SQL statement:
+DELETE from news [42102-191]
+</system-out>
+  </testcase>
+</testsuite>
