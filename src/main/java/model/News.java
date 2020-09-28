@@ -9,15 +9,15 @@ public class News implements Comparable<News> {
     private String content;
     private String author;
     private int id;
-    private int departmentId; //will be used to connect Department to News (one-to-many)
+    private int departmentid; //will be used to connect Department to News (one-to-many)
     private long createdat;
     private String formattedCreatedAt;
 
-    public News(String headline, String content, String author, int departmentId) {
+    public News(String headline, String content, String author, int departmentid) {
         this.headline = headline;
         this.content = content;
         this.author = author;
-        this.departmentId = departmentId;
+        this.departmentid = departmentid;
         this.createdat = System.currentTimeMillis();
         setFormattedCreatedAt(); //we'll make me in a minute
     }
@@ -48,7 +48,7 @@ public class News implements Comparable<News> {
         if (!(o instanceof News)) return false;
         News news = (News) o;
         return id == news.id &&
-                departmentId == news.departmentId &&
+                departmentid == news.departmentid &&
                 Objects.equals(headline, news.headline) &&
                 Objects.equals(content, news.content) &&
                 Objects.equals(author, news.author);
@@ -56,7 +56,7 @@ public class News implements Comparable<News> {
 
     @Override
     public int hashCode() {
-        return Objects.hash(headline, content, author, id, departmentId);
+        return Objects.hash(headline, content, author, id, departmentid);
     }
 
     //Getters
@@ -79,8 +79,8 @@ public class News implements Comparable<News> {
         return id;
     }
 
-    public int getdepartmentId() {
-        return departmentId;
+    public int getdepartmentid() {
+        return departmentid;
     }
 
     public long getCreatedat() {
@@ -113,8 +113,8 @@ public class News implements Comparable<News> {
         this.id = id;
     }
 
-    public void setdepartmentId(int departmentId) {
-        this.departmentId = departmentId;
+    public void setdepartmentid(int departmentid) {
+        this.departmentid = departmentid;
     }
 
     public void setCreatedat() {

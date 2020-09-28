@@ -21,7 +21,8 @@ CREATE TABLE news (
  content VARCHAR,
  author VARCHAR,
  departmentid INTEGER,
- createdat BIGINT
+ createdat BIGINT,
+ formattedCreatedAt VARCHAR
 );
 
 CREATE TABLE departments_users (

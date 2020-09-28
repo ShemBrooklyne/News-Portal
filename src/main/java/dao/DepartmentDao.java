@@ -14,11 +14,11 @@ public interface DepartmentDao {
 
     //read
     List<Department> getAll();
-    List<user> getAllUsersByDepartment(int departmentId);
+    List<user> getAllUsersByDepartment(int departmentid);
 
 
     Department findById(int id);
-    // List<user> getAllusersForADepartment(int departmentId);
+    // List<user> getAllusersForADepartment(int departmentid);
 
     //update
     void update(int id, String name, String about, String website, String email);

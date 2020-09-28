@@ -39,10 +39,10 @@ public class Sql2oDepartmentDao implements DepartmentDao {
     }
 
     @Override
-    public Department findById(int departmentId) {
+    public Department findById(int departmentid) {
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM departments WHERE id = :id")
-                    .addParameter("id", departmentId)
+                    .addParameter("id", departmentid)
                     .executeAndFetchFirst(Department.class);
         }
     }
@@ -62,14 +62,14 @@ public class Sql2oDepartmentDao implements DepartmentDao {
     }
 
     @Override
-    public List<user> getAllUsersByDepartment(int departmentId){
+    public List<user> getAllUsersByDepartment(int departmentid){
         ArrayList<user> users = new ArrayList<>();
 
         String joinQuery = "SELECT userid FROM departments_users WHERE departmentid = :departmentid";
 
         try (Connection con = sql2o.open()) {
             List<Integer> allusersIds = con.createQuery(joinQuery)
-                    .addParameter("departmentid", departmentId)
+                    .addParameter("departmentid", departmentid)
                     .executeAndFetch(Integer.class);
             for (Integer userId : allusersIds){
                 String userQuery = "SELECT * FROM users WHERE id = :userid";

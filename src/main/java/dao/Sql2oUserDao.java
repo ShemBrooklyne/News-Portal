@@ -69,14 +69,14 @@ public class Sql2oUserDao implements UserDao {
         String joinQuery = "SELECT departmentid FROM departments_users WHERE userid = :userid";
 
         try (Connection con = sql2o.open()) {
-            List<Integer> alldepartmentIds = con.createQuery(joinQuery)
+            List<Integer> alldepartmentids = con.createQuery(joinQuery)
                     .addParameter("userid", UserId)
                     .executeAndFetch(Integer.class); //what is happening in the lines above?
-            for (Integer departmentId : alldepartmentIds){
+            for (Integer departmentid : alldepartmentids){
                 String DepartmentQuery = "SELECT * FROM departments WHERE id = :departmentid";
                 departments.add(
                         con.createQuery(DepartmentQuery)
-                                .addParameter("departmentid", departmentId)
+                                .addParameter("departmentid", departmentid)
                                 .executeAndFetchFirst(Department.class));
             } //why are we doing a second sql query - set?
         } catch (Sql2oException ex){

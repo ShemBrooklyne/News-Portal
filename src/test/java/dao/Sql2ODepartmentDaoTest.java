@@ -2,13 +2,12 @@ package dao;
 
 import model.Department;
 import model.user;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
 import java.util.Arrays;
+import java.util.Base64;
 
 import static org.junit.Assert.assertEquals;
 
@@ -18,10 +17,10 @@ public class Sql2ODepartmentDaoTest {
     private Connection conn;
 
 
-    @Before
+    @BeforeClass
     public void setUp() throws Exception {
-        String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:DB/create.sql';";
-        Sql2o sql2o = new Sql2o(connectionString,"","");
+        String connectionString = "jdbc:postgresql://localhost:5432/newsportal_test"; //connect to postgres test database
+        Sql2o sql2o = new Sql2o(connectionString,"access","Access");
         DepartmentDao = new Sql2oDepartmentDao(sql2o);
         userDao = new Sql2oUserDao(sql2o);
         conn = sql2o.open();
@@ -29,8 +28,15 @@ public class Sql2ODepartmentDaoTest {
 
     @After
     public void tearDown() throws Exception {
+        System.out.println("clearing databse");
         DepartmentDao.clearAll();
-        conn.close();
+//        conn.close();
+    }
+
+    @AfterClass //changed to @AfterClass (run once after all tests in this file completed)
+    public static void shutDown() throws Exception{ //changed to static
+//        conn.close(); // close connection once after this entire test file is finished
+        System.out.println("connection closed");
     }
 
 

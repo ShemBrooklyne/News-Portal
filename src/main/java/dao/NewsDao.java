@@ -11,8 +11,8 @@ public interface NewsDao {
 
     //read
     List<News> getAll();
-    List<News> getAllNewsByDepartment(int departmentId);
-    List<News> getAllNewsByDepartmentSortedNewestToOldest(int departmentId);
+    List<News> getAllNewsByDepartment(int departmentid);
+    List<News> getAllNewsByDepartmentSortedNewestToOldest(int departmentid);
 
 
     //update

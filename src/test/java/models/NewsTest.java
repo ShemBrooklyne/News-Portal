@@ -41,16 +41,16 @@ public class NewsTest {
 
 
     @Test
-    public void getdepartmentId() {
+    public void getdepartmentid() {
         News testNews = setupNews();
-        assertEquals(1, testNews.getdepartmentId());
+        assertEquals(1, testNews.getdepartmentid());
     }
 
     @Test
-    public void setdepartmentId() {
+    public void setdepartmentid() {
         News testNews = setupNews();
-        testNews.setdepartmentId(10);
-        assertNotEquals(1, testNews.getdepartmentId());
+        testNews.setdepartmentid(10);
+        assertNotEquals(1, testNews.getdepartmentid());
     }
 
     @Test

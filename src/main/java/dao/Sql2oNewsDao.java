@@ -15,7 +15,7 @@ public class Sql2oNewsDao implements NewsDao {
 
     @Override
     public void add(News news) {
-        String sql = "INSERT INTO news (headline, content, author, departmentid, createdat) VALUES (:headline, :content, :author, :departmentid, :createdat)"; //if you change your model, be sure to update here as well!
+        String sql = "INSERT INTO news (headline, content, author, departmentid, createdat, formattedCreatedAt) VALUES (:headline, :content, :author, :departmentid, :createdat, :formattedCreatedAt)"; //if you change your model, be sure to update here as well!
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql, true)
                     .bind(news)
@@ -36,10 +36,10 @@ public class Sql2oNewsDao implements NewsDao {
     }
 
     @Override
-    public List<News> getAllNewsByDepartment(int departmentId) {
+    public List<News> getAllNewsByDepartment(int departmentid) {
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM news WHERE departmentid = :departmentid")
-                    .addParameter("departmentId", departmentId)
+                    .addParameter("departmentid", departmentid)
                     .executeAndFetch(News.class);
         }
     }
@@ -68,8 +68,8 @@ public class Sql2oNewsDao implements NewsDao {
     }
 
     @Override
-    public List<News> getAllNewsByDepartmentSortedNewestToOldest(int departmentId) {
-        List<News> unsortedNews = getAllNewsByDepartment(departmentId); //calling other method!
+    public List<News> getAllNewsByDepartmentSortedNewestToOldest(int departmentid) {
+        List<News> unsortedNews = getAllNewsByDepartment(departmentid); //calling other method!
         List<News> sortedNews = unsortedNews;
 
         return sortedNews;
