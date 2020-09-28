@@ -1,0 +1,305 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.4 (Ubuntu 12.4-0ubuntu0.20.04.1)
+-- Dumped by pg_dump version 12.4 (Ubuntu 12.4-0ubuntu0.20.04.1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: departments; Type: TABLE; Schema: public; Owner: access
+--
+
+CREATE TABLE public.departments (
+    id integer NOT NULL,
+    name character varying,
+    about character varying,
+    website character varying,
+    email character varying
+);
+
+
+ALTER TABLE public.departments OWNER TO access;
+
+--
+-- Name: departments_id_seq; Type: SEQUENCE; Schema: public; Owner: access
+--
+
+CREATE SEQUENCE public.departments_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.departments_id_seq OWNER TO access;
+
+--
+-- Name: departments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: access
+--
+
+ALTER SEQUENCE public.departments_id_seq OWNED BY public.departments.id;
+
+
+--
+-- Name: departments_users; Type: TABLE; Schema: public; Owner: access
+--
+
+CREATE TABLE public.departments_users (
+    id integer NOT NULL,
+    userid integer,
+    departmentid integer
+);
+
+
+ALTER TABLE public.departments_users OWNER TO access;
+
+--
+-- Name: departments_users_id_seq; Type: SEQUENCE; Schema: public; Owner: access
+--
+
+CREATE SEQUENCE public.departments_users_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.departments_users_id_seq OWNER TO access;
+
+--
+-- Name: departments_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: access
+--
+
+ALTER SEQUENCE public.departments_users_id_seq OWNED BY public.departments_users.id;
+
+
+--
+-- Name: news; Type: TABLE; Schema: public; Owner: access
+--
+
+CREATE TABLE public.news (
+    id integer NOT NULL,
+    headline character varying,
+    content character varying,
+    author character varying,
+    departmentid integer,
+    createdat bigint,
+    formattedcreatedat character varying
+);
+
+
+ALTER TABLE public.news OWNER TO access;
+
+--
+-- Name: news_id_seq; Type: SEQUENCE; Schema: public; Owner: access
+--
+
+CREATE SEQUENCE public.news_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.news_id_seq OWNER TO access;
+
+--
+-- Name: news_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: access
+--
+
+ALTER SEQUENCE public.news_id_seq OWNED BY public.news.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: access
+--
+
+CREATE TABLE public.users (
+    id integer NOT NULL,
+    name character varying,
+    "position" character varying,
+    roles character varying
+);
+
+
+ALTER TABLE public.users OWNER TO access;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: access
+--
+
+CREATE SEQUENCE public.users_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.users_id_seq OWNER TO access;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: access
+--
+
+ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
+
+
+--
+-- Name: departments id; Type: DEFAULT; Schema: public; Owner: access
+--
+
+ALTER TABLE ONLY public.departments ALTER COLUMN id SET DEFAULT nextval('public.departments_id_seq'::regclass);
+
+
+--
+-- Name: departments_users id; Type: DEFAULT; Schema: public; Owner: access
+--
+
+ALTER TABLE ONLY public.departments_users ALTER COLUMN id SET DEFAULT nextval('public.departments_users_id_seq'::regclass);
+
+
+--
+-- Name: news id; Type: DEFAULT; Schema: public; Owner: access
+--
+
+ALTER TABLE ONLY public.news ALTER COLUMN id SET DEFAULT nextval('public.news_id_seq'::regclass);
+
+
+--
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: access
+--
+
+ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
+
+
+--
+-- Data for Name: departments; Type: TABLE DATA; Schema: public; Owner: access
+--
+
+COPY public.departments (id, name, about, website, email) FROM stdin;
+1	DailyTookMedia	News Updater	www.mediaDaily.com	mediadaily@took.com
+2	SportsMediaWorld	Bringing to you First class sports	www.SportsMediaWorld.com	SportsMediaWorld@took.com
+3	Meals & Health	Let's talk about Nuitrition & Healthy Living	www.Keepfitstayhealthy.com	Keepfitstayhealthy@took.com
+4	DavesMechanics	New automotives & vehicle repairs	www.DavesMechanics.com	DavesMechanics@auto.com
+\.
+
+
+--
+-- Data for Name: departments_users; Type: TABLE DATA; Schema: public; Owner: access
+--
+
+COPY public.departments_users (id, userid, departmentid) FROM stdin;
+\.
+
+
+--
+-- Data for Name: news; Type: TABLE DATA; Schema: public; Owner: access
+--
+
+COPY public.news (id, headline, content, author, departmentid, createdat, formattedcreatedat) FROM stdin;
+1	War zone in Russia	Russia a reknown second super power country colides with ........	Alex O. Simba	1	1601330865239	09/29/2020 @ 1:07 AM
+2	Man Commits Suicide And Escapes	In a small village from the surbabrbs a young man by the name ........	Darnell D.	1	1601330925891	09/29/2020 @ 1:08 AM
+3	A young lady by the age of 12 betrothed to a 98years old man	Waceralisa a young girl is being handed out to an old man for in exchange for a great sum of wealth ........	Lennox Wepukullo	1	1601330960540	09/29/2020 @ 1:09 AM
+4	Spilled the Milk	Baba Jayden from his recent briefings to the Kenyan citizens grants Kenyans to Sherehe na haitaki hasira	Maryline Kenjo	1	1601331005380	09/29/2020 @ 1:10 AM
+\.
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: access
+--
+
+COPY public.users (id, name, "position", roles) FROM stdin;
+1	Daniel Darnel	Chief Inspector	Supervison
+2	Lucy Wangecii	Moderator	Ensuring everything is at it's trajectory
+3	Alex O. Simba	IT-Expartee	Maintenance of all computers
+4	Ruff B. Simone	Nurse	Ensuring all patients and visitors are tended to
+\.
+
+
+--
+-- Name: departments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: access
+--
+
+SELECT pg_catalog.setval('public.departments_id_seq', 4, true);
+
+
+--
+-- Name: departments_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: access
+--
+
+SELECT pg_catalog.setval('public.departments_users_id_seq', 1, false);
+
+
+--
+-- Name: news_id_seq; Type: SEQUENCE SET; Schema: public; Owner: access
+--
+
+SELECT pg_catalog.setval('public.news_id_seq', 4, true);
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: access
+--
+
+SELECT pg_catalog.setval('public.users_id_seq', 4, true);
+
+
+--
+-- Name: departments departments_pkey; Type: CONSTRAINT; Schema: public; Owner: access
+--
+
+ALTER TABLE ONLY public.departments
+    ADD CONSTRAINT departments_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: departments_users departments_users_pkey; Type: CONSTRAINT; Schema: public; Owner: access
+--
+
+ALTER TABLE ONLY public.departments_users
+    ADD CONSTRAINT departments_users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: news news_pkey; Type: CONSTRAINT; Schema: public; Owner: access
+--
+
+ALTER TABLE ONLY public.news
+    ADD CONSTRAINT news_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: access
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
