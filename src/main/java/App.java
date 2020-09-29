@@ -86,7 +86,7 @@ public class App {
 
         });
 
-        get("users/:id", "application/json", (request, response) -> {
+        get("/users/:id", "application/json", (request, response) -> {
             int target = Integer.parseInt(request.params("id"));
             user user =  userDao.findUserById(target);
             if(user != null){
